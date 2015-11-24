@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="org.kidinov.retr_rx_test.viewModel.ItemViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.pkmmte.view.CircularImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            bind:error="@{@android:drawable/btn_star}"
+            bind:imageUrl="@{viewModel.url}"
+            tools:src="@android:drawable/btn_star" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:textSize="16sp"
+            bind:text="@{viewModel.text}"
+            tools:text="test" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="org.kidinov.retr_rx_test.viewModel.PageViewModel" />
+
+        <import type="me.tatarka.bindingcollectionadapter.LayoutManagers" />
+    </data>
+
+    <ViewFlipper
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        bind:displayedChild="@{viewModel.screenState.number}">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            bind:itemView="@{viewModel.itemView}"
+            bind:items="@{viewModel.items}"
+            bind:layoutManager="@{LayoutManagers.linear()}" />
+
+        <ProgressBar
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="ERROR HAPPENED" />
+
+    </ViewFlipper>
+    
+</layout>
